@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Curated Amazon finds for your desk, room, and lifestyle — handpicked by Rei.">
+<meta property="og:title" content="doneby.rei — Curated Amazon Finds">
+<meta property="og:description" content="Cute + useful internet finds you'll actually use.">
+<title>doneby.rei</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --cream: #F7F4EF;
+    --cream-dark: #EDE8DF;
+    --warm-dark: #1C1714;
+    --warm-mid: #5C4A3A;
+    --warm-accent: #A0836A;
+    --warm-light: #D6C5B0;
+    --warm-faint: #EAE2D8;
+    --gold: #B8945A;
+    --gold-light: #E8D5B7;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Jost', sans-serif;
+    background: var(--cream);
+    color: var(--warm-dark);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* ── Announcement Bar ── */
+  .announcement {
+    background: var(--warm-dark);
+    color: var(--gold-light);
+    text-align: center;
+    padding: 8px 1rem;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 400;
+  }
+
+  /* ── Sticky Nav ── */
+  .sticky-nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--cream);
+    border-bottom: 0.5px solid var(--warm-light);
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 52px;
+  }
+
+  .nav-brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.25rem;
+    font-style: italic;
+    color: var(--warm-dark);
+    text-decoration: none;
+    font-weight: 400;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 1.75rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--warm-mid);
+    text-decoration: none;
+    font-weight: 400;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--warm-dark); }
+
+  .nav-social {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+  }
+
+  .nav-social a {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--warm-accent);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-social a:hover { color: var(--warm-dark); }
+
+  /* ── Hero ── */
+  .hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 70vh;
+    border-bottom: 0.5px solid var(--warm-light);
+  }
+
+  .hero-left {
+    padding: 5rem 3rem 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-right: 0.5px solid var(--warm-light);
+  }
+
+  .hero-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 32px;
+    height: 0.5px;
+    background: var(--gold);
+  }
+
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3rem, 5vw, 5.5rem);
+    font-weight: 300;
+    line-height: 1.0;
+    letter-spacing: -0.02em;
+    color: var(--warm-dark);
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    color: var(--warm-accent);
+  }
+
+  .hero-desc {
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--warm-mid);
+    line-height: 1.75;
+    max-width: 360px;
+    margin-bottom: 2.5rem;
+  }
+
+  .hero-cta-row {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    background: var(--warm-dark);
+    color: var(--cream);
+    padding: 12px 28px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background 0.2s, color 0.2s;
+    font-family: 'Jost', sans-serif;
+  }
+
+  .btn-primary:hover {
+    background: var(--warm-mid);
+  }
+
+  .btn-secondary {
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--warm-mid);
+    text-decoration: none;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.2s;
+  }
+
+  .btn-secondary:hover { color: var(--warm-dark); }
+
+  .hero-right {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+  }
+
+  .hero-img-top {
+    position: relative;
+    overflow: hidden;
+    border-bottom: 0.5px solid var(--warm-light);
+  }
+
+  .hero-img-bot {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .hero-img-panel {
+    overflow: hidden;
+    position: relative;
+  }
+
+  .hero-img-panel:first-child {
+    border-right: 0.5px solid var(--warm-light);
+  }
+
+  .hero-img-panel img,
+  .hero-img-top img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: sepia(10%) brightness(0.96) saturate(0.9);
+    transition: transform 0.6s ease;
+    display: block;
+  }
+
+  .hero-img-top:hover img,
+  .hero-img-panel:hover img {
+    transform: scale(1.04);
+  }
+
+  .img-label {
+    position: absolute;
+    bottom: 14px;
+    left: 14px;
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #fff;
+    background: rgba(28,23,20,0.5);
+    padding: 4px 10px;
+    backdrop-filter: blur(2px);
+    font-family: 'Jost', sans-serif;
+  }
+
+  /* ── Stats Strip ── */
+  .stats-strip {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border-bottom: 0.5px solid var(--warm-light);
+  }
+
+  .stat-item {
+    padding: 1.75rem 1.5rem;
+    border-right: 0.5px solid var(--warm-light);
+    text-align: center;
+  }
+
+  .stat-item:last-child { border-right: none; }
+
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    font-weight: 300;
+    color: var(--warm-dark);
+    line-height: 1;
+    margin-bottom: 0.35rem;
+  }
+
+  .stat-label {
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--warm-accent);
+  }
+
+  /* ── Section Header ── */
+  .section-hdr {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    padding: 3rem 2.5rem 1.5rem;
+  }
+
+  .section-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.75rem;
+    font-weight: 300;
+    font-style: italic;
+    white-space: nowrap;
+    color: var(--warm-dark);
+  }
+
+  .section-rule {
+    flex: 1;
+    height: 0.5px;
+    background: var(--warm-light);
+  }
+
+  .section-meta {
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--warm-accent);
+    white-space: nowrap;
+  }
+
+  /* ── Product Grid ── */
+  .products {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-top: 0.5px solid var(--warm-light);
+  }
+
+  .product-card {
+    padding: 2rem 2rem 2.25rem;
+    border-right: 0.5px solid var(--warm-light);
+    border-bottom: 0.5px solid var(--warm-light);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background: var(--cream);
+    transition: background 0.25s;
+  }
+
+  .product-card:nth-child(3n) { border-right: none; }
+
+  .product-card:hover { background: var(--cream-dark); }
+
+  .product-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 0.5rem;
+  }
+
+  .product-num {
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    color: var(--gold);
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+
+  .product-badge {
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    background: var(--gold-light);
+    color: var(--warm-mid);
+    padding: 3px 8px;
+    font-weight: 500;
+  }
+
+  .product-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: var(--warm-dark);
+    line-height: 1.3;
+  }
+
+  .product-desc {
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--warm-mid);
+    line-height: 1.7;
+    flex: 1;
+  }
+
+  .product-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--warm-dark);
+    text-decoration: none;
+    font-weight: 500;
+    border-bottom: 0.5px solid var(--warm-dark);
+    padding-bottom: 2px;
+    width: fit-content;
+    transition: color 0.2s, border-color 0.2s;
+    font-family: 'Jost', sans-serif;
+  }
+
+  .product-link:hover { color: var(--gold); border-color: var(--gold); }
+
+  .arrow-icon {
+    width: 10px;
+    height: 10px;
+    flex-shrink: 0;
+  }
+
+  /* ── Category Bands ── */
+  .cat-bands {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-top: 0.5px solid var(--warm-light);
+    border-bottom: 0.5px solid var(--warm-light);
+    margin-top: 1rem;
+  }
+
+  .cat-band {
+    padding: 2.5rem 2rem;
+    border-right: 0.5px solid var(--warm-light);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    transition: background 0.2s;
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  .cat-band:last-child { border-right: none; }
+  .cat-band:hover { background: var(--cream-dark); }
+
+  .cat-icon {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .cat-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 300;
+    font-style: italic;
+    color: var(--warm-dark);
+  }
+
+  .cat-desc {
+    font-size: 12px;
+    font-weight: 300;
+    color: var(--warm-mid);
+    line-height: 1.6;
+  }
+
+  .cat-arrow {
+    margin-top: 1rem;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--warm-accent);
+  }
+
+  /* ── About Section ── */
+  .about {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-top: 0.5px solid var(--warm-light);
+  }
+
+  .about-left {
+    padding: 4rem 3rem;
+    border-right: 0.5px solid var(--warm-light);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.5rem;
+  }
+
+  .about-eyebrow {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .about-heading {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 3vw, 3rem);
+    font-weight: 300;
+    line-height: 1.15;
+    color: var(--warm-dark);
+  }
+
+  .about-heading em {
+    font-style: italic;
+    color: var(--warm-accent);
+  }
+
+  .about-body {
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--warm-mid);
+    line-height: 1.8;
+    max-width: 420px;
+  }
+
+  .about-socials {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    margin-top: 0.5rem;
+  }
+
+  .social-row {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+    color: var(--warm-mid);
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .social-row:hover { color: var(--warm-dark); }
+
+  .social-row::before {
+    content: '';
+    display: block;
+    width: 20px;
+    height: 0.5px;
+    background: var(--gold);
+  }
+
+  .about-right {
+    background: var(--warm-dark);
+    padding: 4rem 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.5rem;
+  }
+
+  .about-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.4rem, 2.5vw, 2rem);
+    font-weight: 300;
+    font-style: italic;
+    color: var(--gold-light);
+    line-height: 1.5;
+  }
+
+  .about-quote-attr {
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--warm-accent);
+  }
+
+  .about-contact {
+    margin-top: 1rem;
+  }
+
+  .contact-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    text-decoration: none;
+    border-bottom: 0.5px solid var(--warm-accent);
+    padding-bottom: 2px;
+    transition: color 0.2s, border-color 0.2s;
+    font-family: 'Jost', sans-serif;
+  }
+
+  .contact-link:hover { color: #fff; border-color: #fff; }
+
+  /* ── Pinterest Board ── */
+  .boards-hdr {
+    padding: 3rem 2.5rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    border-top: 0.5px solid var(--warm-light);
+  }
+
+  .boards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-top: 0.5px solid var(--warm-light);
+    border-bottom: 0.5px solid var(--warm-light);
+  }
+
+  .board-card {
+    padding: 1.75rem 2rem;
+    border-right: 0.5px solid var(--warm-light);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+
+  .board-card:last-child { border-right: none; }
+  .board-card:hover { background: var(--cream-dark); }
+
+  .board-num {
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    color: var(--gold);
+    text-transform: uppercase;
+    font-family: 'Jost', sans-serif;
+    font-weight: 500;
+  }
+
+  .board-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-style: italic;
+    color: var(--warm-dark);
+  }
+
+  .board-link {
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--warm-accent);
+    margin-top: 0.5rem;
+    font-family: 'Jost', sans-serif;
+  }
+
+  /* ── Footer ── */
+  footer {
+    background: var(--warm-dark);
+    padding: 3rem 2.5rem 2rem;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 2rem;
+    align-items: start;
+  }
+
+  .footer-left {}
+
+  .footer-brand-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    font-style: italic;
+    font-weight: 300;
+    color: var(--gold-light);
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+
+  .footer-tagline {
+    font-size: 12px;
+    font-weight: 300;
+    color: var(--warm-accent);
+    letter-spacing: 0.08em;
+    margin-bottom: 1.5rem;
+  }
+
+  .footer-disclosure {
+    font-size: 10px;
+    color: var(--warm-mid);
+    line-height: 1.6;
+    max-width: 420px;
+    letter-spacing: 0.03em;
+  }
+
+  .footer-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.6rem;
+  }
+
+  .footer-link {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--warm-accent);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-link:hover { color: var(--gold-light); }
+
+  .footer-bottom {
+    background: var(--warm-dark);
+    border-top: 0.5px solid #3a2e26;
+    padding: 1rem 2.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-copy {
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: #4a3c32;
+  }
+
+  .affiliate-badge {
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold);
+    border: 0.5px solid #4a3c32;
+    padding: 4px 12px;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 768px) {
+    .hero { grid-template-columns: 1fr; }
+    .hero-right { display: none; }
+    .hero-left { padding: 3rem 1.5rem; }
+    .stats-strip { grid-template-columns: 1fr 1fr; }
+    .stat-item:nth-child(2) { border-right: none; }
+    .products { grid-template-columns: 1fr; }
+    .product-card { border-right: none; }
+    .cat-bands { grid-template-columns: 1fr; }
+    .cat-band { border-right: none; border-bottom: 0.5px solid var(--warm-light); }
+    .about { grid-template-columns: 1fr; }
+    .about-right { display: none; }
+    .boards { grid-template-columns: 1fr; }
+    .board-card { border-right: none; border-bottom: 0.5px solid var(--warm-light); }
+    .nav-links { display: none; }
+    footer { grid-template-columns: 1fr; }
+    .footer-right { align-items: flex-start; }
+    .section-hdr, .boards-hdr { padding: 2rem 1.5rem 1rem; }
+    .products { border-top: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Announcement -->
+<div class="announcement">✦ New picks added weekly — curated finds for your space ✦</div>
+
+<!-- Sticky Nav -->
+<nav class="sticky-nav">
+  <a href="#" class="nav-brand">doneby.rei</a>
+  <ul class="nav-links">
+    <li><a href="#picks">All Finds</a></li>
+    <li><a href="#categories">Categories</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#boards">Pinterest</a></li>
+  </ul>
+  <div class="nav-social">
+    <a href="https://www.pinterest.com/donebyrei/" target="_blank" rel="noopener">Pinterest ↗</a>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-left">
+    <p class="hero-eyebrow">Amazon Affiliate Curator</p>
+    <h1 class="hero-title">doneby<em>.rei</em></h1>
+    <p class="hero-desc">Cute and useful internet finds you'll actually use — hand-picked for your desk, room, and everyday life. Every link is something I'd genuinely recommend.</p>
+    <div class="hero-cta-row">
+      <a href="#picks" class="btn-primary">Browse the Finds</a>
+      <a href="#about" class="btn-secondary">About Rei →</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-img-top">
+      <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=800&q=75" alt="Desk Setup" loading="eager">
+      <span class="img-label">Desk Setup</span>
+    </div>
+    <div class="hero-img-bot">
+      <div class="hero-img-panel">
+        <img src="https://images.unsplash.com/photo-1540518614846-7eded433c457?w=400&q=70" alt="Room Decor" loading="lazy">
+        <span class="img-label">Room Decor</span>
+      </div>
+      <div class="hero-img-panel">
+        <img src="https://images.unsplash.com/photo-1525904097878-94fb15835963?w=400&q=70" alt="Cozy Finds" loading="lazy">
+        <span class="img-label">Cozy Finds</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Stats Strip -->
+<div class="stats-strip">
+  <div class="stat-item">
+    <p class="stat-num">100%</p>
+    <p class="stat-label">Hand-Picked</p>
+  </div>
+  <div class="stat-item">
+    <p class="stat-num">3</p>
+    <p class="stat-label">Pinterest Boards</p>
+  </div>
+  <div class="stat-item">
+    <p class="stat-num">★★★★★</p>
+    <p class="stat-label">Verified Reviews</p>
+  </div>
+  <div class="stat-item">
+    <p class="stat-num">Free</p>
+    <p class="stat-label">Always Free to Browse</p>
+  </div>
+</div>
+
+<!-- Featured Picks -->
+<div class="section-hdr" id="picks">
+  <span class="section-name">Featured Picks</span>
+  <div class="section-rule"></div>
+  <span class="section-meta">3 items — Updated regularly</span>
+</div>
+
+<div class="products">
+
+  <div class="product-card">
+    <div class="product-top">
+      <span class="product-num">01 — Jewelry</span>
+      <span class="product-badge">Best Seller</span>
+    </div>
+    <h2 class="product-name">4-Tier Jewelry Organiser</h2>
+    <p class="product-desc">A clear acrylic tower that keeps every necklace, ring, and stud visible and tangle-free. Stackable, elegant, and a true dresser essential. The kind of organiser that makes you feel put-together every morning.</p>
+    <a class="product-link" href="https://amzn.to/4dm8FZJ" target="_blank" rel="noopener noreferrer">
+      Shop on Amazon
+      <svg class="arrow-icon" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2 8L8 2M3 2h5v5"/></svg>
+    </a>
+  </div>
+
+  <div class="product-card">
+    <div class="product-top">
+      <span class="product-num">02 — Organisation</span>
+      <span class="product-badge">Rei's Pick</span>
+    </div>
+    <h2 class="product-name">Under-Desk Hidden Organiser</h2>
+    <p class="product-desc">Mount it beneath your desk and vanish cables, chargers, and clutter in seconds. Keeps your workspace looking clean and minimal from every angle. A small upgrade that makes a huge difference.</p>
+    <a class="product-link" href="https://amzn.to/42KVaww" target="_blank" rel="noopener noreferrer">
+      Shop on Amazon
+      <svg class="arrow-icon" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2 8L8 2M3 2h5v5"/></svg>
+    </a>
+  </div>
+
+  <div class="product-card">
+    <div class="product-top">
+      <span class="product-num">03 — Ambiance</span>
+      <span class="product-badge">Top Rated</span>
+    </div>
+    <h2 class="product-name">Cozy Bedside Lamp</h2>
+    <p class="product-desc">Warm, dimmable glow perfect for winding-down routines and late-night reading. The kind of soft light that makes any room feel like a sanctuary. One of those things you'll wonder how you lived without.</p>
+    <a class="product-link" href="https://amzn.to/499Rt77" target="_blank" rel="noopener noreferrer">
+      Shop on Amazon
+      <svg class="arrow-icon" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2 8L8 2M3 2h5v5"/></svg>
+    </a>
+  </div>
+
+</div>
+
+<!-- Categories -->
+<div class="section-hdr" id="categories">
+  <span class="section-name">Browse by Category</span>
+  <div class="section-rule"></div>
+  <span class="section-meta">3 Collections</span>
+</div>
+
+<div class="cat-bands">
+  <a href="#picks" class="cat-band">
+    <div class="cat-icon">🖥</div>
+    <p class="cat-name">Desk Setup</p>
+    <p class="cat-desc">Cable management, organisers, lighting, and everything that makes your workspace feel intentional and productive.</p>
+    <p class="cat-arrow">Explore →</p>
+  </a>
+  <a href="#picks" class="cat-band">
+    <div class="cat-icon">🪴</div>
+    <p class="cat-name">Room Decor</p>
+    <p class="cat-desc">Decorative pieces, storage solutions, and accents that turn any room into a space you're proud to spend time in.</p>
+    <p class="cat-arrow">Explore →</p>
+  </a>
+  <a href="#picks" class="cat-band">
+    <div class="cat-icon">☕</div>
+    <p class="cat-name">Cozy Finds</p>
+    <p class="cat-desc">Lamps, bedside essentials, and comfort items for slow mornings and soft evenings. The small luxuries that matter.</p>
+    <p class="cat-arrow">Explore →</p>
+  </a>
+</div>
+
+<!-- About -->
+<section class="about" id="about">
+  <div class="about-left">
+    <p class="about-eyebrow">About</p>
+    <h2 class="about-heading">Hi, I'm <em>Rei</em></h2>
+    <p class="about-body">I'm a student and Amazon market affiliate with a mindset for knowledge and a love for finding things on the internet that are actually worth buying. Every single link on this site is something I'd genuinely recommend — no filler, no fluff, just finds I care about.</p>
+    <p class="about-body">My goal is simple: save you the hours of scrolling. Whether it's for your desk, your room, or your daily routine, I curate the picks so you don't have to.</p>
+    <div class="about-socials">
+      <a href="https://www.pinterest.com/donebyrei/" class="social-row" target="_blank" rel="noopener">Pinterest — @donebyrei</a>
+      <a href="https://pin.it/PxYUxkBEJ" class="social-row" target="_blank" rel="noopener">Cozy Room Inspo Board</a>
+      <a href="https://pin.it/2TCmZVai8" class="social-row" target="_blank" rel="noopener">Desk Setup Board</a>
+      <a href="https://pin.it/75P1sSmP3" class="social-row" target="_blank" rel="noopener">Amazon Finds Board</a>
+    </div>
+  </div>
+  <div class="about-right">
+    <p class="about-quote">"I wanted to build a space where every recommendation actually means something. No clutter, no paid placements — just things I think are worth your time."</p>
+    <p class="about-quote-attr">— Rei, doneby.rei</p>
+    <div class="about-contact">
+      <a href="mailto:donebyrei@gmail.com" class="contact-link">
+        Get in Touch
+        <svg class="arrow-icon" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2 8L8 2M3 2h5v5"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Pinterest Boards -->
+<div class="boards-hdr" id="boards">
+  <span class="section-name">Pinterest Boards</span>
+  <div class="section-rule"></div>
+  <span class="section-meta">3 boards</span>
+</div>
+
+<div class="boards">
+  <a href="https://pin.it/PxYUxkBEJ" class="board-card" target="_blank" rel="noopener">
+    <span class="board-num">Board 01</span>
+    <p class="board-title">Cozy Room Inspo</p>
+    <p style="font-size:12px; color:var(--warm-mid); font-weight:300; line-height:1.6;">Soft lighting, warm tones, and everything that makes a room feel like a retreat.</p>
+    <p class="board-link">View on Pinterest →</p>
+  </a>
+  <a href="https://pin.it/2TCmZVai8" class="board-card" target="_blank" rel="noopener">
+    <span class="board-num">Board 02</span>
+    <p class="board-title">Desk Setup Goals</p>
+    <p style="font-size:12px; color:var(--warm-mid); font-weight:300; line-height:1.6;">Minimal, aesthetic desk setups with all the accessories to recreate them.</p>
+    <p class="board-link">View on Pinterest →</p>
+  </a>
+  <a href="https://pin.it/75P1sSmP3" class="board-card" target="_blank" rel="noopener">
+    <span class="board-num">Board 03</span>
+    <p class="board-title">Amazon Finds</p>
+    <p style="font-size:12px; color:var(--warm-mid); font-weight:300; line-height:1.6;">The master list — every find worth clicking, saved and organised in one place.</p>
+    <p class="board-link">View on Pinterest →</p>
+  </a>
+</div>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-left">
+    <span class="footer-brand-name">doneby.rei</span>
+    <p class="footer-tagline">Curated internet finds — desk, room &amp; lifestyle</p>
+    <p class="footer-disclosure">doneby.rei is a participant in the Amazon Services LLC Associates Program, an affiliate advertising program designed to provide a means for sites to earn advertising fees by advertising and linking to Amazon.com. As an Amazon Associate, I earn from qualifying purchases at no extra cost to you.</p>
+  </div>
+  <div class="footer-right">
+    <a href="#picks" class="footer-link">All Finds</a>
+    <a href="#categories" class="footer-link">Categories</a>
+    <a href="#about" class="footer-link">About</a>
+    <a href="#boards" class="footer-link">Pinterest</a>
+    <a href="https://www.pinterest.com/donebyrei/" class="footer-link" target="_blank" rel="noopener">Pinterest ↗</a>
+  </div>
+</footer>
+<div class="footer-bottom">
+  <span class="footer-copy">© 2026 doneby.rei — All rights reserved</span>
+  <span class="affiliate-badge">Amazon Associate</span>
+</div>
+
+</body>
+</html>
